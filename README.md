@@ -12,6 +12,11 @@ NAS share**. No NAS required.
 Only **chat history** is shared. Settings, caches, plugins and machine-specific
 state stay local to each machine.
 
+**Works with Claude Code anywhere it stores history locally in `~/.claude`** —
+the terminal CLI, the VS Code extension, JetBrains, and similar tools all use the
+same store, so this is **not** VS Code specific. It does **not** affect the
+claude.ai web app (that history lives in the cloud and is already synced for you).
+
 ## Why this exists
 
 Claude Code keeps each conversation in a local file, so its history is tied to
@@ -83,9 +88,10 @@ Run the **same setup on each machine**, pointing at the same synced folder.
 
 ## After running — two things that matter
 
-1. **Restart Claude Code / your editor.** The chat list is built at launch; it
-   won't show the shared history until you reload (VS Code: *Developer: Reload
-   Window*).
+1. **Restart Claude Code so it re-reads history.** The chat list is built at
+   launch, so reload after setup: in the terminal start a new session; in an
+   editor reload it (VS Code: *Developer: Reload Window*; JetBrains: restart the
+   IDE / tool window).
 2. **Open each project from the *same path* on every machine.** History is
    bucketed by the project's absolute path. `C:\Work\app` on one machine and
    `D:\Projects\app` on another are treated as *different* projects and won't
